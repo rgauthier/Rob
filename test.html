@@ -21,6 +21,9 @@
         targetPlayer.hitpoints += 5;
     }
     
+    Player.prototype.energy = 200;
+    alert(p1.energy);
+    
     p1.heal(p2);
     alert(p2.name + " has " + p2.hitpoints + " hit points left");
     
