@@ -1,0 +1,33 @@
+<script type="text/javascript">
+    function Employee(firstName, lastName)
+    {
+        //public fields
+        this.firstName = firstName;
+        this.lastName = lastName;
+        
+        //private Field
+        this.privateFullName;
+        
+        //Private Function
+        var privateGetFullName = function() {
+            privateFullName = firstName + " " + lastName;
+            return privateFullName;
+        }
+        
+        //Priviledged Function
+        this.priviliedgedGetFullName = function() {
+            return privateGetFullName();
+        }
+    }
+    
+    //public method
+    Employee.prototype.publicGetFullName = function() {
+        return this.priviliedgedGetFullName();
+    }
+    
+    var employee = new Employee("Tom", "Hardy");
+    
+    document.write(employee.publicGetFullName() + "<br/>");
+    document.write(employee.priviliedgedGetFullName() + "<br/>");
+    
+</script>
